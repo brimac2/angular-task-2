@@ -1,3 +1,4 @@
-<div *ngFor="let client of clients">
-  {{ client.first_name }}
+
+<div *ngFor="let client of clients |async as clients">
+  {{client.first_name}}
 </div>

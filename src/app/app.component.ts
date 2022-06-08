@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Client } from './models/user.interface';
 import { UsersListService } from './models/users-list.service';
 
@@ -8,13 +9,14 @@ import { UsersListService } from './models/users-list.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
- public clients?: Client[];
+//  public clients?: Client[];
+ clients?: Observable<Client[]>;
 
   constructor(private userService: UsersListService) {}
 
   ngOnInit() {
-    this.userService
-      .getUsers()
-      .subscribe((data: Client[]) => (this.clients = data));
+    this.clients = this.userService.getUsers()
+      // .getUsers()
+      // .subscribe((data: Client[]) => (this.clients = data));
   }
 }
