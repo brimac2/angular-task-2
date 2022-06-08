@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Client } from './models/user.interface';
+import { UsersListService } from './models/users-list.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'practise-2';
+export class AppComponent implements OnInit {
+ public clients?: Client[];
+
+  constructor(private userService: UsersListService) {}
+
+  ngOnInit() {
+    this.userService
+      .getUsers()
+      .subscribe((data: Client[]) => (this.clients = data));
+  }
 }
