@@ -10,10 +10,7 @@ import { UsersListService } from "../users-list.service";
   <div *ngIf="client.first_name">
     <div><a [routerLink] = "['/user', client.id]">
       <button>Add</button></a>
-    </div>
-
-
-  {{client.first_name}}</div>
+    </div>{{client.first_name}}</div>
 </ng-container>
   `
 

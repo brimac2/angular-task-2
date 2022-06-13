@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { Client } from '../models/user.interface';
@@ -20,9 +22,9 @@ export class MainComponent implements OnInit {
 
   clients$?: Observable<Client | undefined>;
 
+
+
   ngOnInit() {
-
-
 
   this.clients$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
@@ -36,8 +38,9 @@ export class MainComponent implements OnInit {
       })
     );
   }
-  getClients() {
-    this.router.navigate(['/users']);
+  gotoClients(client: Client) {
+    const userId = client ? client.id : null
+    this.router.navigate(['/users', {id: userId, foo: 'foo'}]);
   }
 
 }
