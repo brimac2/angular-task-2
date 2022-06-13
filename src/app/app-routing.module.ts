@@ -8,10 +8,11 @@ import { UserNotFoundCompnent } from './models/containers/user-not-found.compone
 
 const routes: Routes = [
   {path: '', redirectTo: '/users', pathMatch:'full'},
+  {path: 'user/:id', component: MainComponent},
   {path:'users', component:UserInformationComponent },
   {path: 'add', component: UserAddComponent},
-  {path: '**', component: UserNotFoundCompnent},
-  {path: 'user/:id', component: MainComponent}
+  {path: '**', component: UserNotFoundCompnent}
+
 
   ]
 

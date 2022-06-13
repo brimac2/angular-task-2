@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { Client } from './user.interface';
 
@@ -12,5 +13,10 @@ export class UsersListService {
 
   getUsers(): Observable<Client[]> {
     return this.http.get<Client[]>(this.USER_API);
+  }
+
+  getUser(id:number | string): Observable<Client> {
+    return this.http.get<Client>(`${this.USER_API}/${id}`)
+
   }
 }

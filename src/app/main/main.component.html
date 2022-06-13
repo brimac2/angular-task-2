@@ -1,9 +1,8 @@
 <div *ngIf="clients$ | async as client">
-  <h3>{{client.first_name}}</h3>
-  <h3>{{client.last_name}}</h3>
-  <h3>{{client.id}}</h3>
-  <button (click)="gotoClients(client)">Back</button>
+  <h3>First name: {{ client.first_name }}</h3>
+  <h3>Last name: {{ client.last_name }}</h3>
+  <h3>Id: {{ client.id }}</h3>
+  <h3>Email: {{ client.email }}</h3>
+  <h3>Gender: {{ client.gender }}</h3>
+  <h3>Ip address: {{ client.ip_address }}</h3>
 </div>
-
-
-<div>{{clients$}}</div>
