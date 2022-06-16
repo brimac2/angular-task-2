@@ -9,10 +9,8 @@ import { UserAddComponent } from './models/containers/user-add.component';
 import { UserInformationComponent } from './models/containers/user-information.component';
 import { UserNotFoundCompnent } from './models/containers/user-not-found.component';
 import { MainComponent } from './main/main.component';
-
-
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +18,23 @@ import { MainComponent } from './main/main.component';
     UserAddComponent,
     UserInformationComponent,
     UserNotFoundCompnent,
-    MainComponent
+    MainComponent,
+
+
+
+
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+
+
+
+
+
   ],
   providers: [UsersListService, AppRoutingModule],
   bootstrap: [AppComponent],

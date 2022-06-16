@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 import { Client } from './user.interface';
@@ -19,4 +20,9 @@ export class UsersListService {
     return this.http.get<Client>(`${this.USER_API}/${id}`)
 
   }
+  submitForm(formData:any):Observable<any> {
+    return this.http.post<any>(this.USER_API, formData)
+  }
+
+
 }
